@@ -21,7 +21,11 @@ Application.prototype.init = function () {
         let requiredController;
 
         try {
-            requiredController = require('./controllers/' + controller);
+            if (!controller) {
+                requiredController = require('./controllers/Home');
+            } else {
+                requiredController = require('./controllers/' + controller);
+            }
         } catch (error) {
             res.statusMessage = 'URL not found';
             res.status(404).send('URL not found');
