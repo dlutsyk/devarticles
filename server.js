@@ -13,4 +13,4 @@ app.server.set('view engine', 'handlebars');
 app.init();
 
 // Start server to lister
-app.server.listen('80');
+app.server.listen(process.env.PORT || '3000');
