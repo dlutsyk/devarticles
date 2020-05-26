@@ -16,13 +16,14 @@ Application.prototype.init = function () {
         const pathName = request._parsedUrl.pathname;
         const parsedControllerAndNode = pathName.slice(1, pathName.length).split('-');
         const controller = parsedControllerAndNode[0];
-        const node = parsedControllerAndNode[1];
+        let node = parsedControllerAndNode[1];
 
         let requiredController;
 
         try {
-            if (!controller) {
-                requiredController = require('./controllers/Home');
+            if (!node) {
+                requiredController = require('./controllers/Default');
+                node = 'Show';
             } else {
                 requiredController = require('./controllers/' + controller);
             }
