@@ -1,12 +1,17 @@
 const guard = require('../guard');
 
 function show() {
-    response.render('home', {title:'Test title'});
+    response.render('home', {title: 'Home Show'});
+}
+
+function def() {
+    response.render('home', {title: 'Home Default'});
 }
 
 function user() {
-    response.send('Hello from Home-User controller');
+    response.send(JSON.stringify(request.query));
 }
 
-module.exports.User = user;
-module.exports.Show = guard.ensure(['http', 'get'], show);
+module.exports.default = def;
+module.exports.user = user;
+module.exports.show = guard.ensure(['http', 'get'], show);

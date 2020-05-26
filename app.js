@@ -14,19 +14,14 @@ Application.prototype.init = function () {
         global.response = res;
 
         const pathName = request._parsedUrl.pathname;
-        const parsedControllerAndNode = pathName.slice(1, pathName.length).split('-');
-        const controller = parsedControllerAndNode[0];
-        let node = parsedControllerAndNode[1];
+        const parsedControllerAndNode = pathName.slice(1, pathName.length).split('/');
+        const controller = parsedControllerAndNode[0] || 'default';
+        let node = parsedControllerAndNode[1] || 'default';
 
         let requiredController;
 
         try {
-            if (!node) {
-                requiredController = require('./controllers/Default');
-                node = 'Show';
-            } else {
-                requiredController = require('./controllers/' + controller);
-            }
+            requiredController = require('./controllers/' + controller);
         } catch (error) {
             res.statusMessage = 'URL not found';
             res.status(404).send('URL not found');

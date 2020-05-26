@@ -1,7 +1,7 @@
 const guard = require('../guard');
 
-function show() {
-    response.render('home', {title: 'Default title'});
+function def() {
+    response.render('home', {title: 'Default controller'});
 }
 
-module.exports.Show = guard.ensure(['http', 'get'], show);
+module.exports.default = def;
