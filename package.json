@@ -1,0 +1,22 @@
+{
+    "name": "express-skeleton",
+    "version": "1.0.0",
+    "description": "",
+    "main": "nodemon server.js",
+    "directories": {
+        "test": "test"
+    },
+    "scripts": {
+        "test": "mocha",
+        "start": "node server.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.17.1",
+        "express-handlebars": "^3.1.0"
+    },
+    "devDependencies": {
+        "mocha": "^6.2.2"
+    }
+}
