@@ -5,7 +5,7 @@ const app = require('./app');
 // Initialize express and associate it with app instance.
 app.server = express();
 
-app.server.engine('handlebars', handlebars({defaultLayout: 'main'}))
+app.server.engine('handlebars', handlebars({defaultLayout: 'main', extname: 'hbs'}))
 app.server.set('views', './views');
 app.server.set('view engine', 'handlebars');
 
