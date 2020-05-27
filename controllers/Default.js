@@ -1,7 +1,20 @@
 const guard = require('../guard');
 
 function def() {
-    response.render('home', {title: 'Default controller'});
+    response.render('default', {
+        title: 'Posts',
+        posts: [
+            {
+                title: 'test post title',
+                content: 'test post content'
+            },
+            {
+                title: 'test post title 2',
+                content: 'lorem200'
+            }
+
+        ]
+    });
 }
 
 module.exports.default = def;
