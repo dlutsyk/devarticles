@@ -9,14 +9,14 @@ Application.prototype.server = null;
 Application.prototype.init = function () {
 
     // Entry point for all requests.
-    this.server.all('*', function (req, res, next) {
+    this.server.all('*', (req, res, next) => {
         global.request = req;
         global.response = res;
 
         const pathName = request._parsedUrl.pathname;
         const parsedControllerAndNode = pathName.slice(1, pathName.length).split('/');
         const controller = parsedControllerAndNode[0] || 'default';
-        let node = parsedControllerAndNode[1] || 'default';
+        const node = parsedControllerAndNode[1] || 'default';
 
         let requiredController;
 
